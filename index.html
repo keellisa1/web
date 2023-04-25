@@ -107,8 +107,15 @@
             }
         }
         function startEvilApp() {
-            var url = "snssdk1128sstg://viewwebpage";
-            location = url;
+            if(didi.dbridge.support('getUserInfo')){
+                //支持时可以直接调用
+                didi.dbridge.getUserInfo({},function(res){
+                    console.log(res)
+                })
+            }else {
+                alert('当前app版本过低，请升级！')
+            }
+
         }
         function routeToThanosPageWithUrl() {
             var url = "https://api.didialift.com/beatles/h5/user/user/homev3?_thanos=1&thanos_js=https%3A%2F%2Fbaidu.com";
